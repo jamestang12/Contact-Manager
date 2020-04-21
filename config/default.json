@@ -1,4 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://James:james123@cluster0-lmcgm.mongodb.net/test?retryWrites=true&w=majority",
-  "jwtSecret": "salkjdlkdsknvsj9832492uJHKJDBJK@980948KHFNK"
+  "mongoURI": "",
+  "jwtSecret": ""
 }
