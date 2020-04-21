@@ -5,13 +5,11 @@ import contactReducer from "./contactReducer";
 import {
   ADD_CONTACT,
   DELETE_CONTACT,
-  SET_ALERT,
   CLEAR_CURRENT,
   SET_CURRENT,
   CLEAR_FILTER,
   UPDATE_CONTACT,
   FILTER_CONTACTS,
-  REMOVE_ALERT,
 } from "../types";
 
 const ContactState = (props) => {
