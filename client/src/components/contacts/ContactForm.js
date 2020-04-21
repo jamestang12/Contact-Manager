@@ -1,8 +1,31 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import ContactContext from "../../context/contact/contactContext";
 
 export const ContactForm = () => {
   const contactContext = useContext(ContactContext);
+
+  const { addContact, current, clearCurrent, updateContact } = contactContext;
+
+  useEffect(
+    () => {
+      if (current !== null) {
+        setContact(current);
+      } else {
+        setContact({
+          name: "",
+          email: "",
+          type: "personal",
+          phone: "",
+        });
+      }
+    }, //This only run if the contactContext and current value change
+    [contactContext, current]
+  );
+
+  const clearAll = () => {
+    clearCurrent();
+  };
+
   //Set Vlaue Const
   const [contact, setContact] = useState({
     name: "",
@@ -19,7 +42,12 @@ export const ContactForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    contactContext.addContact(contact);
+    if (current === null) {
+      addContact(contact);
+    } else {
+      updateContact(contact);
+      clearCurrent();
+    }
     setContact({
       name: "",
       email: "",
@@ -30,7 +58,9 @@ export const ContactForm = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <h2 className="text-primary">Add Contact</h2>
+      <h2 className="text-primary">
+        {current ? "Edit Contact" : "Add Contact"}
+      </h2>
       <input
         type="text"
         placeholder="Name"
@@ -72,10 +102,17 @@ export const ContactForm = () => {
       <div>
         <input
           type="submit"
-          value="Add Contact"
+          value={current ? "Update Contact" : "Add Contact"}
           className="btn btn-primary btn-block"
         />
       </div>
+      {current && (
+        <div>
+          <button className="btn btn-light btn-block" onClick={clearAll}>
+            Clear
+          </button>
+        </div>
+      )}
     </form>
   );
 };
