@@ -10,6 +10,11 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import AlertState from "./context/alert/AlertState";
 import Alert from "./components/layout/Alert";
+import setAuthToken from "./utilis/setAuthToken";
+
+if (localStorage) {
+  setAuthToken(localStorage.token);
+}
 
 const App = () => {
   return (
