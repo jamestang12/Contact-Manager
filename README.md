@@ -1,5 +1,7 @@
 # Contact-Manager
-This is a full stack MERN contact manager application that uses React hooks, context and JWT authentication with a custom build back-end API [Link to demo](https://secret-basin-35529.herokuapp.com/login#!)
+This is a full stack MERN contact manager application that uses React hooks, context and JWT authentication with a custom build back-end API 
+- [Link to demo](https://secret-basin-35529.herokuapp.com/login#!)
+- [Link to back-end API](https://github.com/jamestang12/Contact-Manager-API)
 
 ## Tools
 * Javascript
